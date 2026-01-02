@@ -1,6 +1,6 @@
 services:
-  tg_emailer-telegram-bot:
-    image: tg_emailer-telegram-bot
+  tg-emailer:
+    image: tg-emailer
     env_file:
       - .env                
     environment:             
