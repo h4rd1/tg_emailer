@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyc
+*.pyd
+
+# Виртуальные окружения
+venv/
+env/
+.venv/
+.env/
+
+# Файлы IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Лог‑файлы и кэш
+*.log
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Переменные окружения (критично для безопасности!)
+.env
+.env.*
+
+# Временные файлы
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# Артефакты сборки
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Документация
+docs/_build/
+
+# Прочие
+.gitkeep
+*.tmp
+*.bak
