@@ -30,7 +30,8 @@
 
 5. Запустите приложение:
    ```bash
-   python main.py
+   docker build -f dockerfile -t tg-emailer .
+   docker-compose up 
    ```
 
 ## Использование
