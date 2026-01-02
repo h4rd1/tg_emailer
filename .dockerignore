@@ -1,0 +1,96 @@
+# --- Общие игнорируемые файлы ---
+
+# Кеш и временные файлы Python
+__pycache__/
+*$py.class
+*.so
+*.pyd
+
+# Виртуальные окружения (не должны попадать в образ)
+venv/
+env/
+.venv/
+.env/
+
+# Файлы IDE и редакторов
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Лог‑файлы и кэш сборки
+*.log
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Артефакты сборки и дистрибутивы
+dist/
+build/
+*.egg-info/
+.eggs/
+*.whl
+
+# Документация и временные файлы сборки
+docs/_build/
+site/
+
+# Системные файлы ОС
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# --- Специфичные для Docker ---
+# Сам файл .dockerignore (не нужен в образе)
+.dockerignore
+
+# Docker Compose (если не используется в образе)
+docker-compose.yml
+docker-compose.*.yml
+
+# --- Конфиденциальные данные (критично!) ---
+# Переменные окружения (токены, пароли)
+.env
+.env.*
+
+# Конфигурационные файлы с секретами
+*.pem
+*.key
+id_rsa
+id_ecdsa
+id_ed25519
+known_hosts
+
+# --- Прочие игнорируемые ---
+# Git‑специфичные файлы
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+
+# Файлы редактора и локальные настройки
+*.swp
+*.swo
+*.swn
+*~
+
+# Временные и резервные копии
+*.bak
+*.tmp
+*.backup
+
+# Локальные тестовые данные
+test_data/
+sample_data/
+
+# Документация в формате Markdown (если не нужна в образе)
+*.md
+!README.md          # Исключение: оставляем README.md
+
+# Примеры конфигураций (если не нужны в образе)
+example.*
+sample.*
