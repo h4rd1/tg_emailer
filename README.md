@@ -15,19 +15,14 @@
    git clone https://github.com/h4rd1/tg_emailer.git
    ```
 
-2. Установите зависимости:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Создайте нового Telegram бота через @BotFather и получите токен.
 
-3. Создайте нового Telegram бота через @BotFather и получите токен.
-
-4. Внесите изменнения в **.env** :
+3. Внесите изменнения в **.env** :
    ```bash
    nano .env
    ```
 
-5. Запустите приложение:
+4. Запустите приложение:
    ```bash
    docker build -f dockerfile -t tg-emailer .
    docker-compose up 
