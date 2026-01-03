@@ -24,6 +24,8 @@ RUN chmod +x docker-entrypoint.sh
 RUN adduser -D botuser
 USER botuser
 
+EXPOSE 8080
+
 # Точка входа
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["python", "bot.py"]

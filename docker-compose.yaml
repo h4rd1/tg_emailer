@@ -1,18 +1,46 @@
+version: '3.8'
+
 services:
   tg-emailer:
     image: tg-emailer
     env_file:
-      - .env                
-    environment:             
-      - TELEGRAM_TOKEN
-      - EMAIL
-      - PASSWORD
-      - RECIPIENT
-      - SMTP_SERVER
-      - SMTP_PORT
+      - .env  # Файл с переменными (должен находиться в той же директории)
+    environment:
+      # --- SMTP-настройки ---
+      - SMTP_SERVER=${SMTP_SERVER:-smtp.example.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - EMAIL=${EMAIL:-your_email@example.com}
+      - PASSWORD=${PASSWORD}  # Обязательно задайте в .env или через secrets
+      - RECIPIENT=${RECIPIENT:-recipient@example.com}
+
+      # --- Telegram-настройки ---
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}  # Обязательный параметр
+
+      # --- LDAP-настройки ---
+      - LDAP_SERVER=${LDAP_SERVER:-ldap.example.com}
+      - LDAP_PORT=${LDAP_PORT:-636}
+      - LDAP_USE_SSL=${LDAP_USE_SSL:-true}
+      - LDAP_BASE_DN=${LDAP_BASE_DN:-dc=example,dc=com}
+      - LDAP_USER=${LDAP_USER:-cn=admin,dc=example,dc=com}
+      - LDAP_PASSWORD=${LDAP_PASSWORD}  # Обязательно задайте в .env или через secrets
+
     restart: unless-stopped
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
+
+    # --- Дополнительные настройки (опционально) ---
+    # Ограничение ресурсов
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    # Здоровье контейнера (пример)
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
